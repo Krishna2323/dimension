@@ -1,7 +1,7 @@
 import DashedCircle from "../../../assets/Project-Content/Dashed-Circle.svg";
-import { TaskHeaderObj } from "../../../../model/task-header";
 import In_Progress_Icon from "../../../assets/Project-Content/in-progress.svg"
 import Completed_Icon from "../../../assets/Project-Content/Completed.svg"
+import { TaskHeaderObj } from "../../../model/task-header";
 
 
 export const TaskHeaderData:TaskHeaderObj[] = [

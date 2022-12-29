@@ -1,6 +1,7 @@
 import { DragStart, DragUpdate } from "@krishna2323/react-beautiful-dnd";
 
-export const onDragUpdateHandler = (ev: DragUpdate) => {
+
+export const onDragUpdateHandler = (ev:any) => {
   if (ev.destination) {
     // Removes the placeholder if it exists
     document.getElementById("placeholder")?.remove();
@@ -31,7 +32,7 @@ export const onDragUpdateHandler = (ev: DragUpdate) => {
   }
 };
 
-export const onDragStartHandler = (ev: DragStart) => {
+export const onDragStartHandler = (ev: any) => {
   // Removes the placeholder if it exists
   document.getElementById("placeholder")?.remove();
   // Tasks in the currently hovered over container

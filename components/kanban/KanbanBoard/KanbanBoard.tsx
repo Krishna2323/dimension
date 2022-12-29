@@ -11,7 +11,7 @@ const KanbanBoard = () => {
   const tasks = useAppSelector(state=>state.tasks)
   const dispatch=useAppDispatch()
 
-  let onDragEnd:(result:DropResult)=>void=(result)=>{
+  let onDragEnd:(result:any)=>void=(result)=>{
     document.getElementById("placeholder")?.remove()
     const {destination,source}=result;
     if(!destination)return;
