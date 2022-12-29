@@ -6,8 +6,7 @@
     "dev": "next dev",
     "build": "patch-package && next build",
     "start": "next start",
-    "lint": "next lint",
-    "postinstall": "npm install"
+    "lint": "next lint"
   },
   "dependencies": {
     "@krishna2323/react-beautiful-dnd": "^13.1.14",

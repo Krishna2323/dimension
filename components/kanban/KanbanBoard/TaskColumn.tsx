@@ -4,13 +4,12 @@ import { Draggable, Droppable } from "@krishna2323/react-beautiful-dnd";
 import AddIcon from "../../../assets/Project-Content/Task-Cards/Add.svg"
 import EllipsisIcon from "../../../assets/Project-Content/Task-Cards/Ellipsis.svg"
 import * as IoIcons from "react-icons/io5"
-import { TaskHeaderObj } from "../../../model/task-header";
 import { useAppDispatch, useAppSelector } from "../../../hooks/redux";
 import { setTaskForm } from "../../../store/UI/UiActions";
 import TaskCard from "../../../ui/TaskCard/TaskCard";
 import { Task } from "../../../model/Task";
 import Image from "next/image";
-import { DraggableProvided, DraggableStateSnapshot, DroppableProvided } from "../../../@types/@krishna2323/react-beautiful-dnd/ index";
+import { TaskHeaderObj } from "../../../model/task-header";
 
 
 
