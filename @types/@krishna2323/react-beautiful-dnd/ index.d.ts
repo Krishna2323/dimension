@@ -15,7 +15,7 @@
 // TypeScript Version: 2.8
 // Refer to https://github.com/atlassian/react-beautiful-dnd/blob/master/src/types.js
 
-// `declare module '@krishna2323/react-beautiful-dnd'`
+declare module '@krishna2323/react-beautiful-dnd'
 
 import * as React from 'react';
 
