@@ -4,10 +4,10 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "patch-package && next build",
     "start": "next start",
     "lint": "next lint",
-    "postinstall": "npm install && patch-package"
+    "postinstall": "npm install"
   },
   "dependencies": {
     "@krishna2323/react-beautiful-dnd": "^13.1.14",
