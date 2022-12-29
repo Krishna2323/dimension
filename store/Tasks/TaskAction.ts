@@ -1,4 +1,4 @@
-import { DraggableLocation, Droppable } from "react-beautiful-dnd";
+import { DraggableLocation } from "../../@types/@krishna2323/react-beautiful-dnd/ index";
 import { Task } from "../../model/Task";
 import { AppDispatch } from "../store";
 import Tasks, { TasksSliceState } from "./TaskSlice";
