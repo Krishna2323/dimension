@@ -39,7 +39,7 @@ const TaskColumn: React.FC<{ headerData: TaskHeaderObj }> = (props) => {
         </div>
       </div>
       <Droppable droppableId={taskType}>
-        {(droppableProvided, droppableSnapshot) => (
+        {(droppableProvided:any, droppableSnapshot:any) => (
           <div
             className={"tasks"}
             id={taskType}
@@ -53,7 +53,7 @@ const TaskColumn: React.FC<{ headerData: TaskHeaderObj }> = (props) => {
                   draggableId={item.id.toString()}
                   key={item.flyte}
                 >
-                  {(dragableProvided, dragableSnapshot) => (
+                  {(dragableProvided:any, dragableSnapshot:any) => (
                     <TaskCard
                       ref={dragableProvided.innerRef}
                       draggableProps={dragableProvided.draggableProps}
