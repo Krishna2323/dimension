@@ -10,6 +10,8 @@ import { setTaskForm } from "../../../store/UI/UiActions";
 import TaskCard from "../../../ui/TaskCard/TaskCard";
 import { Task } from "../../../model/Task";
 import Image from "next/image";
+import { DraggableProvided, DraggableStateSnapshot, DroppableProvided } from "../../../@types/@krishna2323/react-beautiful-dnd/ index";
+import { DroppableStateSnapshot } from "../../../reactdnd";
 
 
 
@@ -39,7 +41,7 @@ const TaskColumn: React.FC<{ headerData: TaskHeaderObj }> = (props) => {
         </div>
       </div>
       <Droppable droppableId={taskType}>
-        {(droppableProvided, droppableSnapshot) => (
+        {(droppableProvided:DroppableProvided, droppableSnapshot:DroppableStateSnapshot) => (
           <div
             className={"tasks"}
             id={taskType}
@@ -53,7 +55,7 @@ const TaskColumn: React.FC<{ headerData: TaskHeaderObj }> = (props) => {
                   draggableId={item.id.toString()}
                   key={item.flyte}
                 >
-                  {(dragableProvided, dragableSnapshot) => (
+                  {(dragableProvided:DraggableProvided, dragableSnapshot:DraggableStateSnapshot) => (
                     <TaskCard
                       ref={dragableProvided.innerRef}
                       draggableProps={dragableProvided.draggableProps}
