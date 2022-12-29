@@ -1,0 +1,114 @@
+.backdrop{
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    -webkit-backdrop-filter: blur(3px);
+    backdrop-filter: blur(3px);
+    background-color: rgba(0,0,0,0.1);
+    z-index: 10;
+    top: 0;
+    left: 0;
+    opacity:0;
+    pointer-events: none;
+    transition: all .3s;
+    &--open{
+        opacity: 1;
+        pointer-events: all;
+    }
+}
+.task-form{
+    width: 40%;
+    // height: 50%;
+    position: fixed;
+    z-index: 10;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    border-radius: var(--br-md);
+    // background-color: aqua;
+    border: 1px solid var(--border-color-primary);
+    background: white;
+    font-family: inherit;
+    padding: 1.6rem 2rem;
+    display: flex;
+    flex-direction: column;
+    opacity: 0 ;
+    pointer-events: none;
+    transition: all .3s;
+    
+    &--open{
+        animation: displayForm .5s forwards;
+        pointer-events: all;
+    }
+
+    & .form-heading{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 1.6rem;
+        font-weight: 500;
+        margin-bottom: 1.2rem;
+    }
+
+    & .form-inputs{
+        padding:1rem 0 2rem ;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        gap: 2rem;
+
+        & .form-input{
+            display: flex;
+            flex-direction: column;
+            gap: .2rem;
+            flex: 0 0 calc(50% - 1rem);
+            & label{
+                margin-left: .4rem;
+                font-family: Gt-Whelshime-Regular,sans-serif;
+                background-color: white;
+                letter-spacing: .2rem;
+                font-weight: 300;
+                font-family: "Gt-Whelshime-Light", sans-serif;
+            }
+            & input,select {
+                border: none;
+                outline: none;
+                border-radius: 2px;
+                background-color: #EFEFEF;
+                padding: .8rem .8rem .8rem .8rem;
+                width: 100%;
+                font-size: 1.4rem;
+                font-weight: 500;
+                color: #5C6066;
+                display: table-cell;
+                vertical-align: middle;
+                font-family: "Gt-Whelshime-Thin", sans-serif;
+
+                &::placeholder{
+                    color: #5C6066;
+                    font-size: 1.2rem;
+                    font-weight: 500;
+                    color: #5C6066;
+                } 
+            }
+            & select{
+                & option{
+                    padding: 1rem;
+                    cursor: pointer;
+                    &:hover{
+                        background-color:#5C6066 ;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@keyframes displayForm {
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 100%;
+    }
+}

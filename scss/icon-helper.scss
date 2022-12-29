@@ -1,0 +1,19 @@
+.icon-bg-grey {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 0.45rem 0;
+    &::after {
+        content: "";
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        width: calc(100% + 1.2rem);
+        height: calc(100% + .1rem);
+        background-color: var(--btn-border-color);
+        transform: translate(-50%,-50%);
+        // padding: .7rem;
+        z-index: -1;
+        border-radius: 5px;
+    }
+}

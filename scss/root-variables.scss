@@ -1,0 +1,129 @@
+:root {
+    --bg-primary: #ffffff;
+    --body-padding: 1rem;
+
+    //Icons
+    --icon-filter-primary: none;
+    --icon-filter-secondary: none;
+
+    // Navbar 
+    --active-nav-link-color: #533BE5;
+    --nav-link-bg: #F5F5F5;
+
+    // Project Navbar
+    --project-navbar-heading-color: #292938;
+    --project-navbar-progress-color: #191925;
+    --project-navbar-progress-bar: #F2F5F7;
+    --project-navbar-progress-percent: #6C6F75;
+    --project-navbar-link-color: #6C6F75;
+
+    //Kanban Header
+    --kanban-breadcrum-primary-color: #282a2f;
+    --kanban-breadcrum-secondary-color: #6c6f75;
+    --kanban-header-selection-bg: #eee;
+    --kanban-search-input-color: #5c6066;
+    --kanban-search-input-bg: #EFEFEF;
+
+    //Kanban Toolbar
+
+    //Kanban Tasks Column
+    --task-heading-color: #111118;
+    --task-para-color:#7F8995;
+    --task-count-bg: #F7F9FA;
+    --task-count-border: #EAEDF0;
+
+    // Task Card
+    --task-card-active-shadow:#D4D8DC;
+    --task-card-placeholder:#F7F9FA;
+    --task-card-tag-bg:#EAF0FF;
+
+    //Buttons
+    --btn-color-primary: #6C6F75;
+    --btn-color-secondary: #5c6066;
+    --btn-border-color: #DFE1E4;
+
+
+
+    // Header
+    --header-height: 5.4rem;
+
+    // BORDER RADIUS
+    --br-sm: 7px;
+    --br-md: 10px;
+    --br-lg: 13px;
+
+    // BORDER COLOR
+    --border-color-primary: #E9EBEF;
+
+    // COLORS
+
+    --text-grey-primary: #7F8995;
+    --text-grey-secondary: #6C6F75;
+
+    // Gradients
+    --gradient-primary: radial-gradient(106.9% 106.9% at 83.5% 100%, #330f52 0%, var(--token-2e606580-c5cb-45c2-a66e-07cb8dbe5a38, rgb(136, 0, 255)) 100%);
+}
+
+.dark-mode {
+    --bg-primary: #171717;
+    --body-padding: 1rem;
+
+    // Icons
+    --icon-filter-primary: brightness(0) invert(1);
+    --icon-filter-secondary: brightness(.3) grayscale(1.1) invert(1);
+
+    // Navbar 
+    --active-nav-link-color: #533BE5;
+    --nav-link-bg: #111111;
+
+    // Project Navbar
+    --project-navbar-heading-color: #f7f7f7;
+    --project-navbar-progress-heading: #ffffff;
+    --project-navbar-progress-bar: #212529;
+    --project-navbar-progress-percent: #adb5bd;
+    --project-navbar-link-color: #dee2e6;
+
+    //Kanban Header
+    --kanban-breadcrum-primary-color: #f1f3f5;
+    --kanban-breadcrum-secondary-color: #adb5bd;
+    --kanban-header-selection-bg: #212529;
+    --kanban-search-input-color: #e9ecef;
+    --kanban-search-input-bg: #212529;
+
+    //Kanban Toolbar
+
+    //Kanban Tasks Column
+    --task-heading-color: #fefefe;
+    --task-para-color:#ced4da;
+    --task-count-bg: #212529;
+    --task-count-border: #343a40;
+
+    // Task Card
+    --task-card-active-shadow:#212529;
+    --task-card-placeholder:#131313;
+    --task-card-tag-bg:#212529;
+
+    //Buttons
+    --btn-color-primary: #e9ecef;
+    --btn-color-secondary: #f1f3f5;
+    --btn-border-color: #495057;
+
+    // Header
+    --header-height: 5.4rem;
+
+    // BORDER RADIUS
+    --br-sm: 7px;
+    --br-md: 10px;
+    --br-lg: 13px;
+
+    // BORDER COLOR
+    --border-color-primary: #262b30;
+
+    // COLORS
+
+    --text-grey-primary: #7F8995;
+    --text-grey-secondary: #6C6F75;
+
+    // Gradients
+    --gradient-primary: radial-gradient(106.9% 106.9% at 83.5% 100%, #330f52 0%, var(--token-2e606580-c5cb-45c2-a66e-07cb8dbe5a38, rgb(136, 0, 255)) 100%);
+}

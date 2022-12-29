@@ -1,13 +1,24 @@
-import { Html, Head, Main, NextScript } from 'next/document'
+import { resetServerContext } from "@krishna2323/react-beautiful-dnd";
+import Document, { Html, Head, Main, NextScript, DocumentContext, DocumentInitialProps } from "next/document"
 
-export default function Document() {
-  return (
-    <Html lang="en">
-      <Head />
-      <body>
-        <Main />
-        <NextScript />
-      </body>
-    </Html>
-  )
+type Props = {}
+
+export default class MyDocument extends Document<Props> {
+   static async getInitialProps(ctx: DocumentContext):Promise<DocumentInitialProps>{
+      const initialProps=await Document.getInitialProps(ctx);
+      resetServerContext()
+      return {...initialProps}
+   }
+   render() {
+      return (
+         <Html>
+            <Head />
+            <body>
+               <Main />
+               <div id='task-form-modal' />
+               <NextScript />
+            </body>
+         </Html>
+      )
+   }
 }

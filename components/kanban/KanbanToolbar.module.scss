@@ -1,0 +1,30 @@
+.kanbanToolbar{
+    padding: 0 3rem;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    // height: calc(var(--header-height) - 1rem);
+    padding: .7rem 1.6rem 1.1rem 2.6rem;
+    width: 100%;
+    border-bottom: 1px solid var(--border-color-primary);
+    position: sticky;
+    top: var(--header-height) ;
+    background-color: var(--bg-primary);
+    z-index: 2;
+
+    & .btnsDiv{
+        display: flex;
+        gap: .6rem;
+    }
+
+    & .avatars{
+        margin-left: auto;
+        display: flex;
+        gap: .4rem;
+        margin-right: 1.6rem;
+        & img{
+            width: 2.8rem;
+            height: 2.8rem;
+        }
+    }
+}

@@ -1,0 +1,118 @@
+.kanbanHeader {
+    padding: 0 1.6rem 0 2.6rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: var(--header-height);
+    width: 100%;
+    border-bottom: 1px solid var(--border-color-primary);
+    position: sticky;
+    top: 0;
+    background-color: var(--bg-primary);
+    z-index: 2;
+
+    & .breadcrums {
+        display: flex;
+        list-style: none;
+
+        & li:last-of-type {
+            & img {
+                display: none;
+            }
+
+            color: var(--kanban-breadcrum-secondary-color);
+        }
+
+        & li {
+            display: flex;
+            align-items: center;
+            color: var(--kanban-breadcrum-primary-color);
+
+            & a {
+                font-size: 1.4rem;
+                font-weight:500;
+                text-decoration: none;
+                line-height: 2rem;
+                color: inherit;
+            }
+
+            & img {
+                color: #6C6F75;
+                padding: 2px 5px;
+            }
+        }
+    }
+
+
+    & .selection {
+        font-size: 1.2rem;
+        font-weight: 400;
+        margin-left: .6rem;
+        color: var(--kanban-breadcrum-secondary-color);
+        background: var(--kanban-header-selection-bg);
+        padding:0  .6rem;
+        border-radius: 5px;
+        line-height: 2rem;
+        text-transform: uppercase;
+        margin-right: auto;
+        font-family: "Gt-Whelshime-Light", sans-serif;
+    }
+
+    & .searchBar {
+        & div {
+            position: relative;
+
+            & input {
+                border: none;
+                outline: none;
+                border-radius: var(--br-sm);
+                background-color: var(--kanban-search-input-bg);
+                padding: .6rem .6rem .6rem 3.2rem;
+                width: 17.5rem;
+                font-size: 1.2rem;
+                font-weight: 500;
+                color: var(--kanban-search-input-color);
+                display: table-cell;
+                vertical-align: middle;
+                // font-family:Gt-Whelshime-Light ;
+                line-height: 20px;
+
+                letter-spacing: .2px;
+                // transform: translateY(4px);
+
+                &::placeholder{
+                    font-size: 1.2rem;
+                    font-weight: 500;
+                    color: var(--kanban-search-input-color);
+                }
+            }
+
+            & img {
+                position: absolute;
+                top: 50%;
+                left: .93rem;
+                transform: translateY(-50%);
+                color: #94989E;
+                width: 1.3rem;
+                height: 1.3rem;
+            }
+        }
+    }
+
+    & .headerIcon {
+        border-radius: 8px;
+        border: 1px solid var(--border-color-primary);
+        padding: .8rem .7rem;
+        display: flex;
+        align-items: center;
+        margin:0 1.2rem ;
+
+// 
+        & svg {
+            color: #5C6066;
+            width: 1.6rem;
+            height: 1.4rem;
+            filter: var(--icon-filter-primary);
+        }
+    }
+}

@@ -1,0 +1,74 @@
+.btn-primary {
+    background: none;
+    padding: 0 1.1rem;
+    border-radius: var(--br-sm);
+    border: none;
+    border: 1px solid var(--btn-border-color);
+    box-shadow: 0px 3px 0px var(--btn-border-color);
+    transition: all .3s;
+    color: var(--btn-color-primary);
+    font-size: 1.4rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: .6rem;
+    font-family: inherit;
+    line-height: 2rem;
+    font-family: "Gt-Whelshime", sans-serif;
+    font-weight: 500;
+    height: 3rem;
+
+    &--sm{
+        font-size: 1.2rem;
+    }
+
+    &:active {
+        box-shadow: 0px 1.5px 0px 1px solid var(--btn-border-color);
+        transform: translateY(3px);
+    }
+
+    & svg {
+        fill: var(--btn-color-secondary);
+        width: 1.4rem;
+        height: 1.4rem;
+    }
+    & img{
+        filter: var(--icon-filter-primary);
+    }
+
+
+    &--divider {
+        gap: 2.4rem;
+        position: relative;
+
+        & img{
+            width: 1.2rem;
+            height: 1.2rem;
+        }
+
+        &::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            height: 10px;
+            width: 1px;
+            background-color: var(--btn-border-color);
+            transform: translate(-50%, -50%);
+        }
+    }
+}
+
+.btn-form {
+    margin-left: auto;
+    background-color: none;
+    border: none;
+    justify-self: center;
+    background: #4734FE;
+    color: white;
+    font-family: "Gt-Whelshime", sans-serif;
+    font-weight: 500;
+    padding: .6rem 1.2rem;
+    border-radius: 5px;
+    cursor: pointer;
+}

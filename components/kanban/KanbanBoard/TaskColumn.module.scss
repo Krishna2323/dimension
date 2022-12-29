@@ -1,0 +1,112 @@
+.tasksSection{
+    width: 100%;
+    display: flex;
+    padding: 3.2rem 0;
+    flex-direction: column;
+    & .header{
+        &::after{
+            background-color: var(--border-bottom);
+        }
+        margin-bottom: 2.4rem;
+    }
+        &:nth-child(1){
+            & .header img{
+                width: 1.9rem;
+                height: 1.9rem;
+            };
+        }
+
+        & .header{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+            padding-bottom: 1.6rem;
+            font-family: "Gt-Whelshime", sans-serif;
+
+            &::after{
+                content: "";
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                height: 2px;
+                width: 100%;
+                border-radius: 7px;
+            }
+
+            & .headerLeft{
+                display: flex;
+                align-items: center;
+                gap: .8rem;
+                font-size: 1.4rem;
+                & img{
+                    width: 1.2rem;
+                    height: 1.2rem;
+                }
+                & img:nth-child(1){
+                    transform: translateY(-1px);
+                }
+                & h5:nth-child(2){
+                    font-weight: 700;
+                    font-size: 1.4rem;
+                    color:var(--task-heading-color);
+                    
+                }
+                & h6:nth-child(3){
+                    font-weight: 700;
+                    font-size: 1.2rem;
+                    border: 1px solid var(--task-count-border);
+                    background: var(--task-count-bg);
+                    border-radius: 8px;
+                    margin-left: .4rem;
+                    color:var(--task-heading-color);
+                    width: 2.8rem;
+                    height: 2rem;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    padding: 0px 8px;
+                }
+                & img{
+                    width: 1.75rem;
+                    height: 1.75rem;
+                }
+            }
+            & .headerRight{
+                display: flex;
+                align-items: center;
+                gap: 1rem;
+            }
+        }
+    & .tasks{
+        display: flex;
+        flex-direction: column;
+        gap: 4.5rem;
+        row-gap: 0;
+        min-height: .1px;
+        height: 100%;
+        & > .task-card{
+            margin-bottom: 2.4rem;
+        }
+    }
+    & .addCardBtn{
+        background-color: none;
+        width: 100%;
+        padding: 1rem;
+        border-radius: 8px;
+        line-height: 2rem;
+        border: 1px solid var(--border-color-primary);
+        background: none;
+        font-size: 1.4rem;
+        font-weight: 700;
+        color: #4734FE;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1.3rem;
+        cursor: pointer;
+        & svg{
+            font-size: 1.8rem;
+        }
+    }
+}

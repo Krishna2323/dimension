@@ -1,0 +1,56 @@
+@import "../../scss/scroll-bar.scss" ;
+.custom-select{
+    position: relative;
+    & .custom-input__value{
+        width: 100%;
+        border: none;
+        outline: none;
+        border-radius: 2px;
+        background-color: #EFEFEF;
+        padding: .8rem .8rem .8rem .8rem;
+        width: 100%;
+        font-size: 1.4rem;
+        font-weight:400;
+        color: #5C6066;
+        display: table-cell;
+        vertical-align: middle;
+        caret-color: transparent
+    }
+
+    & .custom-input__options{
+        position: absolute;
+        top: calc(1.4rem + 1.6rem + (3rem * .095));
+        width: 100%;
+        list-style: none;
+        border: none;
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+        outline: none;
+        border-bottom-left-radius:5px ;
+        z-index: 1;
+        border-bottom-right-radius:5px ;
+        border: 1px solid var(--border-color-primary);
+        background-color: white;
+        overflow-y: auto;
+        @include custom-scrollbar;
+        max-height: 0px;
+        opacity: 0;
+        pointer-events: none;
+        transition: all .3s;
+
+        &--open{
+            max-height: 10rem;
+            opacity: 1;
+            pointer-events: all;
+        }
+        & li{
+            padding:.4rem .8rem;
+            font-size: 1.2rem;
+            cursor: pointer;
+            &:hover{
+                outline: 1px solid var(--border-color-primary);
+            }
+        }
+    }
+}

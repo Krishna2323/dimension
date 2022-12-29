@@ -1,0 +1,121 @@
+.projectNavbar {
+    border-right: 1px solid var(--border-color-primary);
+    
+    & .projectName  {
+        border-bottom: 1px solid var(--border-color-primary);
+        height: var(--header-height);
+        display: flex;
+        align-items: center;
+        padding: 0 1.2rem;
+        & h2{
+            font-size: 1.4rem;
+            color: var(--project-navbar-heading-color);
+            letter-spacing: .2px;
+        }
+    }
+
+    & .projectImage {
+        & img {
+            width: 100%;
+            height: auto;
+        }
+    }
+
+    & .projectProgress {
+        border-bottom: 1px solid var(--border-color-primary);
+        padding: 1.2rem 1.4rem 2rem;
+        line-height: 1.6rem;
+
+        &__stats {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: .8rem;
+
+            &Level {
+                font-weight: 700;
+                font-size: 1.2rem;
+                display: flex;
+                align-items: center;
+                letter-spacing: .2px;
+                color: var(--project-navbar-progress-heading);
+                & img{
+                    margin-right: .37rem;
+                    filter: var(--icon-filter-primary);
+                    width: 1.6rem;
+                    // transform: translateY(-.5px) scale(1.1);
+                    height: 1.6rem;
+                }
+            }
+
+            &Percentage {
+                font-weight: 400;
+                font-size: 1.2rem;
+                color: var(--project-navbar-progress-percent);
+                font-family: Gt-Whelshime-Light,sans-serif;
+            }
+        }
+
+        &__progressBar {
+            width: 100%;
+            height: .8rem;
+            position: relative;
+            border-radius: 40px;
+            background-color: var(--project-navbar-progress-bar);
+            &::after{
+                border-radius: var(--br-lg);
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: var(--project-progress);
+                height: 100%;
+                background: repeating-linear-gradient( 115deg, #4734FE, #4734FE 8px, #7164ff 7px, #7164ff 14px);
+            }
+
+            &__icon{
+                position: absolute;
+                top: 50%;
+                left: calc(var(--project-progress) - 5%);
+                transform: translateY(-50%);
+                background: var(--project-navbar-progress-bar);
+                border: 1px solid #EAEDF0;
+                border-radius: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 2px;
+                width: 1.6rem;
+                height: 1.6rem;
+                z-index: 2;
+                
+            }
+        }
+    }
+
+    & .projectTask{
+        padding: 1.8rem 1.8rem 1.8rem 2rem ;
+
+        &List{
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 1.8rem;
+            font-weight: 400;
+            & li{
+                font-size: 1.4rem;
+                color:  var(--project-navbar-link-color);
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                font-family: "Gt-Whelshime-Regular", sans-serif;
+                font-weight: 400;
+                & img{
+                    width: 1.2rem;
+                    height: 1.2rem;      
+                    filter: var(--icon-filter-primary);
+                }
+            }
+        }
+    }
+}

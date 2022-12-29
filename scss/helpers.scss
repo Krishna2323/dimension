@@ -1,0 +1,45 @@
+// Icons BG
+
+.bg-grey-icon{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: .3rem;
+    background: #DFE1E4;
+    border-radius: 5px;
+    margin-right: .4rem;
+    padding: .6rem;
+    // box-sizing: content-box;
+    // width: 140%;
+}
+
+button,input,form{
+    font-family: inherit;
+    & * {
+        font-family: Gt-Whelshime,sans-serif;
+    }
+}
+
+p,span,li,button,a{
+    letter-spacing: .2px;
+    line-height: 1.6rem;
+}
+
+h1,h2,h3,h4,h5,h6{
+    letter-spacing: .6px;
+}
+
+h2,h3,h4,h5{
+    line-height: 2rem;
+}
+
+// MARGINS
+
+.mr-l-auto{
+    margin-left: auto;
+}
+
+// img{
+//     // width: 100%;
+//     height: auto;
+// }
