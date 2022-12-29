@@ -9,14 +9,11 @@ import CommentIcon from "../../assets/Task-Card/message.svg";
 import TickCircleIcon from "../../assets/Task-Card/tick-circle.svg";
 import Completed_Icon from "../../assets/Project-Content/Completed.svg"
 import Image from "next/image";
-import {
-  DraggableProvidedDraggableProps,
-  DraggableProvidedDragHandleProps,
-} from "@krishna2323/react-beautiful-dnd";
 import { Task } from "../../model/Task";
+import { DraggableProvidedDragHandleProps } from "../../@types/@krishna2323/react-beautiful-dnd/ index";
 
 interface ChildComponentProps {
-  draggableProps: DraggableProvidedDraggableProps;
+  draggableProps: DraggableProvidedDragHandleProps;
   dragHandleProps: DraggableProvidedDragHandleProps | null | undefined;
   taskInfo: Task;
 }
