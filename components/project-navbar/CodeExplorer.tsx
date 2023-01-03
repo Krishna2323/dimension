@@ -39,8 +39,8 @@ const File: React.FC<{ file: GithubTreeFile }> = (props) => {
         onClick={() => setOpen((prev) => !prev)}
         style={{
           paddingLeft: `${
-            level * (level > 1 ? 1 : 0.6) +
-            2.9 +
+            level * (level > 1 ? 1 : 0) +
+            1.7 +
             (level > 2 ? level * 0.15 : 0) +
             (file.type === "blob" ? level * 0.2 : 0)
           }rem`,
@@ -86,7 +86,7 @@ const GithubFiles: React.FC<{ repo: GithubImportedRepo }> = (props) => {
           className={open ? classes.rootFile__open : ""}
         >
           <Image src={open ? GithubDark : Github} alt="Arrow Down" />
-          {name}{" "}
+          <span>{name} </span>
           <Image src={open ? ArrowDownDark : ArrowRight} alt="Arrow Down" />
         </span>
         <div

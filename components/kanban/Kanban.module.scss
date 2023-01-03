@@ -1,6 +1,6 @@
 .kanbanDashboard {
   display: grid;
-  grid-template-columns: 2.1fr 7.4fr;
+  grid-template-columns: 25.5rem 7.4fr;
 
   .kanban {
     height: 100vh;
@@ -21,8 +21,6 @@
     &::-webkit-scrollbar-thumb {
       background: #adb5bd;
       border-radius: var(--brr-regular);
-      padding: 0.5rem;
-      // border-radius: 7px;
     }
   }
 }
