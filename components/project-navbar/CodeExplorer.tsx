@@ -5,23 +5,31 @@ import ArrowDownDark from "../../assets/Arrows/ArrowDownDark.svg";
 import ArrowDown from "../../assets/Arrows/ArrowDown.svg";
 import ArrowRight from "../../assets/Arrows/ArrowRight.svg";
 import Folder from "../../assets/FileIcons/FolderPublic.svg";
-import Github from "../../assets/FileIcons/Github.svg";
+import Github from "../../assets/FileIcons/github.svg";
 import GithubDark from "../../assets/FileIcons/GithubDark.svg";
-import Document from "../../assets/FileIcons/Document.svg";
-import { fileLogos } from "../helpers/fileIcons";
+import FileIcon from "../../assets/FileIcons/file.svg";
+// import { fileLogos } from "../helpers/fileIcons";
 import { sorfByFolderFirst } from "./CodeExplorerHelper";
 import { GithubImportedRepo, GithubTreeFile } from "../../model/GithubAPI";
 
 const File: React.FC<{ file: GithubTreeFile }> = (props) => {
   const { file } = props;
   const [open, setOpen] = useState<boolean>(false);
-
   const level = file.path.split("/").length - 1;
   const fileName = file.path.split("/")[level];
-  const FileIcon =
-    file.type === "tree"
-      ? fileLogos[file.path.split(".").at(-1)!] || Folder
-      : fileLogos[file.path.split(".").at(-1)!] || Document;
+  let filePath;
+  if (file.type === "blob") {
+    filePath = file.path.split(".").at(-1)!;
+  } else {
+    filePath = file.path.split("/").at(-1);
+  }
+  let file2;
+
+  try {
+    file2 = require(`/assets/FileIcons/${filePath}.svg`);
+  } catch (error) {
+    file2 = file.type === "blob" ? FileIcon : Folder;
+  }
 
   return (
     <div className={classes.file}>
@@ -38,7 +46,7 @@ const File: React.FC<{ file: GithubTreeFile }> = (props) => {
         {file.children && (
           <Image src={open ? ArrowDown : ArrowRight} alt="Arrow Down" />
         )}
-        <Image src={FileIcon} alt="Folder" />
+        <Image src={file2} width={20} height={20} alt="Folder" />
         {fileName}
       </span>
       <div
