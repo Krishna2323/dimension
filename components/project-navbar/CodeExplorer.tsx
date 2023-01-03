@@ -15,8 +15,8 @@ import { GithubImportedRepo, GithubTreeFile } from "../../model/GithubAPI";
 const File: React.FC<{ file: GithubTreeFile }> = (props) => {
   const { file } = props;
   const [open, setOpen] = useState<boolean>(false);
-  const level = file.path.split("/").length - 1;
-  const fileName = file.path.split("/")[level];
+  const level = file.path.split("/").length;
+  const fileName = file.path.split("/")[level - 1];
   let filePath;
   if (file.type === "blob") {
     filePath = file.path.split(".").at(-1)!;
@@ -38,7 +38,9 @@ const File: React.FC<{ file: GithubTreeFile }> = (props) => {
         ${file.type === "blob" && classes.blob}`}
         onClick={() => setOpen((prev) => !prev)}
         style={{
-          paddingLeft: `${level + 1 * 0.6 + 2.9}rem`,
+          paddingLeft: `${
+            level * (level > 1 ? 1 : 0.6) + 2.9 + (level > 2 ? level * 0.15 : 0)
+          }rem`,
           paddingTop: ".6rem",
           paddingBottom: ".6rem",
         }}
