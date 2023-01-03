@@ -12,7 +12,7 @@ export const loginUserWithGithub = () => async () => {
     provider: "github",
     options: {
       scopes: "repo gist notifications",
-      redirectTo: "https://dimension-mlag-nm0ec4l6r-krishna2323.vercel.app/",
+      redirectTo: "https://dimension-psi.vercel.app/",
     },
   });
 };
