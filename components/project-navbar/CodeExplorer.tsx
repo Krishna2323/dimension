@@ -46,7 +46,7 @@ const File: React.FC<{ file: GithubTreeFile }> = (props) => {
         {file.children && (
           <Image src={open ? ArrowDown : ArrowRight} alt="Arrow Down" />
         )}
-        <Image src={file2} width={20} height={20} alt="Folder" />
+        <Image src={file2} width={18} height={18} alt="Folder" />
         {fileName}
       </span>
       <div
