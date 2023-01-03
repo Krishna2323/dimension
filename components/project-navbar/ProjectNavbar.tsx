@@ -82,7 +82,7 @@ const ProjectNavbar: React.FC = () => {
             onClick={handlerUserReposClick}
             className="btn-form btn-form--center"
           >
-            Import Github Repo's
+            Import Github Repo&apos;s
           </button>
         )}
       </div>
