@@ -5,7 +5,6 @@ import { Octokit } from "octokit";
 import { userSliceActions } from "./UserSlice";
 import { list_to_tree } from "./Helpers";
 import { GithubImportedRepo } from "../../model/GithubAPI";
-import { Endpoints } from "@octokit/types";
 
 export const loginUserWithGithub = () => async () => {
   toast.loading("Please wait...");
