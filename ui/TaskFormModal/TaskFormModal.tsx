@@ -1,4 +1,4 @@
-import React, { FormEvent, useEffect, useState } from "react";
+import React, { FormEvent, useState } from "react";
 import ReactDom from "react-dom";
 import { Transition } from "react-transition-group";
 import { useAppDispatch, useAppSelector } from "../../hooks/redux";

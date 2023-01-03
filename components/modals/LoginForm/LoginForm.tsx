@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import ReactDom from "react-dom";
 import { Transition } from "react-transition-group";
 import { useAppDispatch, useAppSelector } from "../../../hooks/redux";
@@ -32,10 +32,6 @@ const LoginForm = () => {
     e.preventDefault();
     dispatch(loginUserWithGithub());
   };
-
-  useEffect(() => {
-    console.log(display);
-  }, []);
   return (
     <Transition in={display} unmountOnExit mountOnEnter timeout={300}>
       {() =>

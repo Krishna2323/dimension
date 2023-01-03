@@ -27,7 +27,7 @@ const UserRepos = () => {
     if (githubRepos.length === 0 && user) {
       dispacth(getUserRepos(user));
     }
-  }, [githubRepos, user]);
+  }, [githubRepos, user, dispacth]);
 
   const onImportClick = (repo: any) => () => {
     dispacth(getUserRepoTree(repo, user, githubImportedRepos));
