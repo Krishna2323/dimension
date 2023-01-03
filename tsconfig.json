@@ -14,8 +14,17 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
-    "declaration": true,
+    "declaration": true
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "next.config", "pages/_document.js","src/**/*","**/*.d.ts","reactdnd.d.ts"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "next.config",
+    "pages/_document.js",
+    "src/**/*",
+    "**/*.d.ts",
+    "reactdnd.d.ts"
+  ],
   "exclude": ["node_modules"]
 }

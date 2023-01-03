@@ -5,14 +5,17 @@ import { useAppDispatch, useAppSelector } from "../../hooks/redux";
 import { Task } from "../../model/Task";
 import { addTaskAction } from "../../store/Tasks/TaskAction";
 import { setTaskForm } from "../../store/UI/UiActions";
+import { UiSliceType } from "../../store/UI/UiSliceType";
+import Backdrop from "../Backdrop/Backdrop";
+import CustomInput from "../CustomInput/CustomInput";
 import CustomSelect from "../CustomSelect/CustomSelect";
 import classes from "./TaskFormModal.module.scss";
 
 const TaskFormModal = () => {
   const tasks = useAppSelector((state) => state.tasks);
-  const { display, defaultTaskType } = useAppSelector(
-    (state) => state.ui.taskForm
-  );
+  const {
+    taskForm: { display },
+  }: UiSliceType = useAppSelector((state) => state.ui);
   const dispatch = useAppDispatch();
   const [title, setTitle] = useState<string>("");
   const [description, setDescription] = useState<string>("");
@@ -21,32 +24,30 @@ const TaskFormModal = () => {
   const [subtasks, setSubtasks] = useState<string>("");
   const [status, setStatus] = useState<string>("Todo");
 
-  const onBackdropClick = (e: React.MouseEvent<HTMLDivElement>) => {
+  const onBackdropClick = () => {
     dispatch(setTaskForm(false, "Todo"));
   };
 
-  const handleTitleChange = (e: React.ChangeEvent<HTMLElement>) => {
-    const target = e.target as HTMLInputElement;
-    setTitle(target.value);
+  const handleTitleChange = (val: string) => {
+    setTitle(val);
   };
-  const handleDescriptionChange = (e: React.ChangeEvent<HTMLElement>) => {
-    const target = e.target as HTMLInputElement;
-    setDescription(target.value);
+
+  const handleDescriptionChange = (val: string) => {
+    setDescription(val);
   };
+
   const handleTagChange = (str: string) => {
-    // setTag(target.innerHTML)
-    console.log(str);
     setTag(str);
   };
-  const handleFlyteChange = (e: React.ChangeEvent<HTMLElement>) => {
-    const target = e.target as HTMLInputElement;
-    console.log(flyte);
-    setFlyte(target.value);
+
+  const handleFlyteChange = (val: string) => {
+    setFlyte(val);
   };
-  const handleSubtasksChange = (e: React.ChangeEvent<HTMLElement>) => {
-    const target = e.target as HTMLInputElement;
-    setSubtasks(target.value);
+
+  const handleSubtasksChange = (val: string) => {
+    setSubtasks(val);
   };
+
   const handleStatusChange = (str: string) => {
     setStatus(str);
   };
@@ -79,7 +80,6 @@ const TaskFormModal = () => {
       })
       .join("");
     let currentTasks = tasks[`${selector}Tasks`];
-    console.log(selector, currentTasks);
     dispatch(addTaskAction(newTask, currentTasks));
     dispatch(setTaskForm(false, "Todo"));
   };
@@ -89,74 +89,66 @@ const TaskFormModal = () => {
       {() =>
         ReactDom.createPortal(
           <>
-            <div
-              onClick={onBackdropClick}
-              className={`backdrop ${display ? "backdrop--open" :""}`}
-              style={{ transition: `all .3s` }}
-            ></div>
-              <form
-                onSubmit={onFormSubmit}
-                className={`task-form ${display ? "task-form--open" :""}`}
-              >
-                <h4 className="form-heading">Add Task</h4>
-                <div className="form-inputs">
-                  <div className="form-input">
-                    <label htmlFor="task-title">Title</label>
-                    <input
-                      onChange={handleTitleChange}
-                      type={"text"}
-                      id="task-title"
-                    />
-                  </div>
-                  <div className="form-input">
-                    <label htmlFor="task-description">Description</label>
-                    <input
-                      onChange={handleDescriptionChange}
-                      type={"text"}
-                      id="task-description"
-                    />
-                  </div>
-                  <div className="form-input">
-                    <label htmlFor="task-flyte">Flyte</label>
-                    <input
-                      onChange={handleFlyteChange}
-                      type={"text"}
-                      id="task-flyte"
-                    />
-                  </div>
-                  <div className="form-input">
-                    <label htmlFor="task-tag">Tag</label>
-                    <CustomSelect
-                      default={tag}
-                      options={[
-                        "UX Design",
-                        "UI Design",
-                        "Planning",
-                        "Server Architecture",
-                      ]}
-                      onChange={handleTagChange}
-                    />
-                  </div>
-                  <div className="form-input">
-                    <label htmlFor="task-subtasks">Total Subtasks</label>
-                    <input
-                      onChange={handleSubtasksChange}
-                      type={"number"}
-                      id="task-subtasks"
-                    />
-                  </div>
-                  <div className="form-input">
-                    <label htmlFor="task-status">Status</label>
-                    <CustomSelect
-                      default={status}
-                      options={["Todo", "In-Progress", "Completed"]}
-                      onChange={handleStatusChange}
-                    />
-                  </div>
-                </div>
-                <button className="btn-form">Add Task</button>
-              </form>
-            
+            <Backdrop onBackdropClick={onBackdropClick} display={display} />
+            <form
+              onSubmit={onFormSubmit}
+              className={`${classes.taskForm} ${
+                display ? classes.taskForm__open : ""
+              }`}
+            >
+              <h4 className={classes.formHeading}>Add Task</h4>
+              <div className={classes.formInputs}>
+                <CustomInput
+                  id="task-form-title"
+                  label="Title"
+                  onChange={handleTitleChange}
+                  type={"text"}
+                />
+
+                <CustomInput
+                  label="Description"
+                  id="task-form-description"
+                  type={"text"}
+                  onChange={handleDescriptionChange}
+                />
+
+                <CustomInput
+                  id="task-flyte"
+                  type={"text"}
+                  label="Flyte"
+                  onChange={handleFlyteChange}
+                />
+
+                <CustomSelect
+                  default={tag}
+                  options={[
+                    "UX Design",
+                    "UI Design",
+                    "Planning",
+                    "Server Architecture",
+                  ]}
+                  onChange={handleTagChange}
+                  id="task-form-tag"
+                  label="Tag"
+                />
+
+                <CustomInput
+                  id="task-form-subtasks"
+                  label="Total Subtasks"
+                  onChange={handleSubtasksChange}
+                  type={"text"}
+                />
+
+                <CustomSelect
+                  default={status}
+                  options={["Todo", "In-Progress", "Completed"]}
+                  onChange={handleStatusChange}
+                  id="task-form-label"
+                  label="Status"
+                />
+              </div>
+              <button className="btn-form">Add Task</button>
+            </form>
           </>,
           document.getElementById("task-form-modal")!
         )

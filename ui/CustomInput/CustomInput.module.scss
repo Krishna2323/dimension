@@ -1,0 +1,35 @@
+.customInput{
+        display: flex;
+        flex-direction: column;
+        gap: .2rem;
+        flex: 0 0 calc(50% - 1rem);
+        & label{
+            margin-left: .4rem;
+            font-family: Gt-Whelshime-Regular,sans-serif;
+            background-color: white;
+            letter-spacing: .2rem;
+            font-weight: 300;
+            font-family: "Gt-Whelshime-Light", sans-serif;
+        }
+        & input,select {
+            border: none;
+            outline: none;
+            border-radius: 2px;
+            background-color: #EFEFEF;
+            padding: .8rem .8rem .8rem .8rem;
+            width: 100%;
+            font-size: 1.4rem;
+            font-weight: 500;
+            color: #5C6066;
+            display: table-cell;
+            vertical-align: middle;
+            font-family: "Gt-Whelshime-Thin", sans-serif;
+
+            &::placeholder{
+                color: #5C6066;
+                font-size: 1.2rem;
+                font-weight: 500;
+                color: #5C6066;
+            } 
+        }
+}

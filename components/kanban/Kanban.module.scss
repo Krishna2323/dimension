@@ -1,21 +1,23 @@
-.kanbanDashboard{
+.kanbanDashboard {
   display: grid;
-  grid-template-columns: 2.1fr  7.4fr;
-  .kanban{
+  grid-template-columns: 2.1fr 7.4fr;
+
+  .kanban {
     height: 100vh;
     overflow-y: scroll;
     padding: 0 1.3rem 0 0;
+
     &::-webkit-scrollbar {
       width: 1.2em;
       padding: 0.5rem;
     }
-    
+
     &::-webkit-scrollbar-track {
       background-color: #dee2e6;
       display: block;
       width: 1.2rem;
     }
-    
+
     &::-webkit-scrollbar-thumb {
       background: #adb5bd;
       border-radius: var(--brr-regular);
@@ -23,4 +25,4 @@
       // border-radius: 7px;
     }
   }
-} 
+}

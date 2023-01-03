@@ -1,8 +1,19 @@
 @import "../../scss/scroll-bar.scss" ;
-.custom-select{
+.customSelect{
+    display: flex;
+    flex-direction: column;
+    gap: .2rem;
+    flex: 0 0 calc(50% - 1rem);
     position: relative;
-    & .custom-input__value{
-        width: 100%;
+    & label{
+        margin-left: .4rem;
+        font-family: Gt-Whelshime-Regular,sans-serif;
+        background-color: white;
+        letter-spacing: .2rem;
+        font-weight: 300;
+        font-family: "Gt-Whelshime-Light", sans-serif;
+    }
+    & .customInput__value{
         border: none;
         outline: none;
         border-radius: 2px;
@@ -10,14 +21,14 @@
         padding: .8rem .8rem .8rem .8rem;
         width: 100%;
         font-size: 1.4rem;
-        font-weight:400;
+        font-weight: 500;
         color: #5C6066;
         display: table-cell;
         vertical-align: middle;
-        caret-color: transparent
+        font-family: "Gt-Whelshime-Thin", sans-serif;
     }
 
-    & .custom-input__options{
+    & .customInput__options{
         position: absolute;
         top: calc(1.4rem + 1.6rem + (3rem * .095));
         width: 100%;
@@ -39,7 +50,7 @@
         pointer-events: none;
         transition: all .3s;
 
-        &--open{
+        &Open{
             max-height: 10rem;
             opacity: 1;
             pointer-events: all;
