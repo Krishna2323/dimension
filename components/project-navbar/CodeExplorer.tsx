@@ -1,9 +1,8 @@
-import React, { Children, Fragment, useState } from "react";
+import React, { Children, Fragment, useRef, useState } from "react";
 import classes from "./CodeExplorer.module.scss";
 import Image from "next/image";
 import ArrowDownDark from "../../assets/Arrows/ArrowDownDark.svg";
-import ArrowDown from "../../assets/Arrows/ArrowDown.svg";
-import ArrowRight from "../../assets/Arrows/ArrowRight.svg";
+import ArrowRight from "../../assets/Arrows/ArrowRightLightDark.svg";
 import Folder from "../../assets/FileIcons/FolderPublic.svg";
 import Github from "../../assets/FileIcons/github.svg";
 import GithubDark from "../../assets/FileIcons/GithubDark.svg";
@@ -40,7 +39,7 @@ const File: React.FC<{ file: GithubTreeFile }> = (props) => {
         style={{
           paddingLeft: `${
             level * (level > 1 ? 1 : 0) +
-            1.7 +
+            1.75 +
             (level > 2 ? level * 0.15 : 0) +
             (file.type === "blob" ? level * 0.2 : 0)
           }rem`,
@@ -49,7 +48,14 @@ const File: React.FC<{ file: GithubTreeFile }> = (props) => {
         }}
       >
         {file.children && (
-          <Image src={open ? ArrowDown : ArrowRight} alt="Arrow Down" />
+          <Image
+            src={ArrowRight}
+            style={{
+              transform: `${open ? "rotate(90deg)" : "rotate(0deg)"}`,
+              transition: "all .15s",
+            }}
+            alt="Arrow Down"
+          />
         )}
         <Image src={file2} width={16} height={16} alt="Folder" />
         {fileName}
@@ -75,25 +81,39 @@ const GithubFiles: React.FC<{ repo: GithubImportedRepo }> = (props) => {
   let { name, tree } = props.repo;
   const [open, setOpen] = useState<boolean>(false);
   let sortedTree = sorfByFolderFirst(tree);
+  const rootFileRef = useRef<HTMLDivElement>(null);
+
+  const handleMaxHeight = () => {
+    setOpen((prev) => !prev);
+
+    if (!open) {
+      rootFileRef.current!.style.maxHeight =
+        rootFileRef.current?.scrollHeight + "px";
+    } else {
+      rootFileRef.current!.style.maxHeight = "3rem";
+    }
+  };
 
   return (
     <Fragment>
-      <div className={classes.rootFile}>
+      <div className={classes.rootFile} ref={rootFileRef}>
         <span
-          onClick={() => {
-            setOpen((prev) => !prev);
-          }}
+          onClick={handleMaxHeight}
           className={open ? classes.rootFile__open : ""}
         >
           <Image src={open ? GithubDark : Github} alt="Arrow Down" />
           <span>{name} </span>
-          <Image src={open ? ArrowDownDark : ArrowRight} alt="Arrow Down" />
+          <Image
+            src={ArrowDownDark}
+            style={{
+              transform: `${open ? "rotate(0deg)" : "rotate(-90deg)"}`,
+              transition: "all .15s",
+              opacity: open ? 1 : 0.6,
+            }}
+            alt="Arrow Down"
+          />
         </span>
-        <div
-          className={`${classes.rootFile__files} ${
-            open ? classes.rootFile__files__open : ""
-          }`}
-        >
+        <div>
           {sortedTree.map((file: GithubTreeFile) => (
             <File key={file.sha} file={file} />
           ))}

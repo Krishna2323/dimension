@@ -12,8 +12,8 @@ export const loginUserWithGithub = () => async () => {
     provider: "github",
     options: {
       scopes: "repo gist notifications",
-      redirectTo: "https://dimension-psi.vercel.app/",
-      // redirectTo: "http://localhost:3000",
+      // redirectTo: "https://dimension-psi.vercel.app/",
+      redirectTo: "http://localhost:3000",
     },
   });
 };

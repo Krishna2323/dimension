@@ -1,4 +1,8 @@
 .rootFile {
+    max-height: 3rem;
+    overflow-y: clip;
+    transition: all .35s;
+
     & .rootFile__files {
         max-height: 0;
         overflow: hidden;
@@ -72,6 +76,7 @@
 }
 
 .file {
+    // max-height: 3rem;
 
     & .blob {
         background-color: transparent;
