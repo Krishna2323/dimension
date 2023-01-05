@@ -30,6 +30,10 @@ const File: React.FC<{ file: GithubTreeFile }> = (props) => {
     file2 = file.type === "blob" ? FileIcon : Folder;
   }
 
+  let paddingLeft = `${
+    level * 1.75 + level * 0.08 + (file.type === "blob" ? level * 0.07 : 0)
+  }rem`;
+
   return (
     <div className={classes.file}>
       <span
@@ -37,12 +41,7 @@ const File: React.FC<{ file: GithubTreeFile }> = (props) => {
         ${classes.blob}`}
         onClick={() => setOpen((prev) => !prev)}
         style={{
-          paddingLeft: `${
-            level * (level > 1 ? 1 : 0) +
-            1.75 +
-            (level > 2 ? level * 0.15 : 0) +
-            (file.type === "blob" ? level * 0.2 : 0)
-          }rem`,
+          paddingLeft,
           paddingTop: ".6rem",
           paddingBottom: ".6rem",
           paddingRight: ".6rem",
