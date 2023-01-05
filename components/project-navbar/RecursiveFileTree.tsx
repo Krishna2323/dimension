@@ -11,9 +11,28 @@ const RecursiveFileTree: React.FC<{ file: GithubTreeFile }> = (props) => {
   const { file } = props;
   const [open, setOpen] = useState<boolean>(false);
   const level = file.path.split("/").length;
-  const fileName = file.path.split("/")[level - 1];
+  let fileName = file.path.split("/")[level - 1];
 
-  // For extracting the extention name for icons
+  let breakLoop = false;
+  let fileCopy = Object.assign({}, file);
+  let childToPass = Object.assign({}, file);
+  let loop = true;
+
+  while (fileCopy && fileCopy.children && !breakLoop) {
+    if (fileCopy.children.length === 1) {
+      fileName += "/" + fileCopy.children[0].path.split("/").at(-1);
+      fileCopy = fileCopy.children[0];
+      childToPass.children = undefined;
+    } else if (fileCopy.children.length > 1) {
+      childToPass = fileCopy;
+      breakLoop = true;
+    } else {
+      childToPass.children = undefined;
+      loop = false;
+      return null;
+    }
+  }
+
   let fileExtention;
   if (file.type === "blob") {
     fileExtention = file.path.split(".").at(-1)!;
@@ -66,9 +85,16 @@ const RecursiveFileTree: React.FC<{ file: GithubTreeFile }> = (props) => {
           transition: "all .3s",
         }}
       >
-        {file.children &&
-          file.children?.length > 0 &&
+        {/* {file.children &&
+          file.children.length > 0 &&
           sorfByFolderFirst(file.children)?.map(
+            (node: GithubTreeFile, i: number) => (
+              <RecursiveFileTree key={i} file={node} />
+            )
+          )} */}
+        {childToPass.children &&
+          childToPass.children.length > 0 &&
+          sorfByFolderFirst(childToPass.children)?.map(
             (node: GithubTreeFile, i: number) => (
               <RecursiveFileTree key={i} file={node} />
             )
