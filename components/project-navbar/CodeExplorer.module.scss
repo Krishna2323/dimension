@@ -85,14 +85,14 @@
         &::after {
             content: "";
             top: 0;
-            left: calc(50% + .45rem);
+            left: calc(50%);
             background-color: transparent;
             position: absolute;
-            width: calc(100% - .9rem);
+            width: calc(100%);
             transform: translateX(-50%);
             height: 100%;
             z-index: -1;
-            border-radius: .6rem;
+            // border-radius: .6rem;
             transition: all .1s;
         }
 
