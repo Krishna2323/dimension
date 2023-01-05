@@ -7,28 +7,40 @@ import FileIcon from "../../assets/FileIcons/file.svg";
 import { sorfByFolderFirst } from "./CodeExplorerHelper";
 import { GithubTreeFile } from "../../model/GithubAPI";
 
-const RecursiveFileTree: React.FC<{ file: GithubTreeFile }> = (props) => {
-  const { file } = props;
+const RecursiveFileTree: React.FC<{
+  file: GithubTreeFile;
+  levelToSub: number;
+}> = (props) => {
+  const { file, levelToSub } = props;
   const [open, setOpen] = useState<boolean>(false);
-  const level = file.path.split("/").length;
+  const level = file.path.split("/").length - levelToSub;
   let fileName = file.path.split("/")[level - 1];
 
   let breakLoop = false;
   let fileCopy = Object.assign({}, file);
   let childToPass = Object.assign({}, file);
-  let loop = true;
+  let levelToSubtract = 0;
 
   while (fileCopy && fileCopy.children && !breakLoop) {
-    if (fileCopy.children.length === 1) {
+    if (
+      fileCopy.children.length === 1 &&
+      fileCopy.children[0].type !== "blob"
+    ) {
       fileName += "/" + fileCopy.children[0].path.split("/").at(-1);
       fileCopy = fileCopy.children[0];
       childToPass.children = undefined;
+      levelToSubtract++;
     } else if (fileCopy.children.length > 1) {
+      childToPass = fileCopy;
+      breakLoop = true;
+    } else if (
+      fileCopy.children.length === 1 &&
+      fileCopy.children[0].type === "blob"
+    ) {
       childToPass = fileCopy;
       breakLoop = true;
     } else {
       childToPass.children = undefined;
-      loop = false;
       return null;
     }
   }
@@ -96,7 +108,11 @@ const RecursiveFileTree: React.FC<{ file: GithubTreeFile }> = (props) => {
           childToPass.children.length > 0 &&
           sorfByFolderFirst(childToPass.children)?.map(
             (node: GithubTreeFile, i: number) => (
-              <RecursiveFileTree key={i} file={node} />
+              <RecursiveFileTree
+                levelToSub={levelToSubtract}
+                key={i}
+                file={node}
+              />
             )
           )}
       </div>

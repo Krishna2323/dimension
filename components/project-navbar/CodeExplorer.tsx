@@ -55,7 +55,7 @@ const GithubFiles: React.FC<{ repo: GithubImportedRepo }> = (props) => {
         </span>
         <div>
           {sortedTree.map((file: GithubTreeFile) => (
-            <RecursiveFileTree key={file.sha} file={file} />
+            <RecursiveFileTree levelToSub={0} key={file.sha} file={file} />
           ))}
         </div>
       </div>

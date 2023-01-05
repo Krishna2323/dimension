@@ -9,6 +9,11 @@
         animation: overflowShow .15s forwards;
     }
 
+    &>div {
+        display: inline-block;
+        min-width: 100%;
+    }
+
     // For the root file
     & .rootFile__files {
         max-height: 0;
