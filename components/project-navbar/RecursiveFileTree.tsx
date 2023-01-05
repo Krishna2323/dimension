@@ -1,4 +1,4 @@
-import React, { Children, Fragment, useRef, useState } from "react";
+import React, { useState } from "react";
 import classes from "./CodeExplorer.module.scss";
 import Image from "next/image";
 import ArrowRight from "../../assets/Arrows/ArrowRightLightDark.svg";
