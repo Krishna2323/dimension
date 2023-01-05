@@ -61,7 +61,7 @@ const RecursiveFileTree: React.FC<{ file: GithubTreeFile }> = (props) => {
       </span>
       <div
         style={{
-          maxHeight: open ? "500vh" : "0rem",
+          display: open ? "block" : "none",
           overflowY: open ? "unset" : "hidden",
           transition: "all .3s",
         }}
