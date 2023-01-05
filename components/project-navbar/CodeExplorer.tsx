@@ -20,10 +20,12 @@ const GithubFiles: React.FC<{ repo: GithubImportedRepo }> = (props) => {
     if (!open) {
       rootFileRef.current!.style.maxHeight =
         rootFileRef.current?.scrollHeight + "px";
-      // rootFileRef.current!.style.overflow = "unset";
+      rootFileRef.current!.style.overflow = "hidden";
+      rootFileRef.current!.classList.add(classes.rootFile__open);
     } else {
       rootFileRef.current!.style.maxHeight = "3rem";
       rootFileRef.current!.style.overflow = "hidden";
+      rootFileRef.current!.classList.remove(classes.rootFile__open);
     }
   };
 

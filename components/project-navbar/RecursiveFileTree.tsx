@@ -41,8 +41,8 @@ const RecursiveFileTree: React.FC<{ file: GithubTreeFile }> = (props) => {
         onClick={() => setOpen((prev) => !prev)}
         style={{
           paddingLeft,
-          paddingTop: ".6rem",
-          paddingBottom: ".6rem",
+          paddingTop: ".7rem",
+          paddingBottom: ".7rem",
           paddingRight: ".6rem",
         }}
       >
