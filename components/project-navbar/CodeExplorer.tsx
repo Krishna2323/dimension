@@ -45,6 +45,7 @@ const File: React.FC<{ file: GithubTreeFile }> = (props) => {
           }rem`,
           paddingTop: ".6rem",
           paddingBottom: ".6rem",
+          paddingRight: ".6rem",
         }}
       >
         {file.children && (
@@ -63,7 +64,7 @@ const File: React.FC<{ file: GithubTreeFile }> = (props) => {
       <div
         style={{
           maxHeight: open ? "500vh" : "0rem",
-          overflowY: open ? "auto" : "hidden",
+          overflowY: open ? "unset" : "hidden",
           transition: "all .3s",
         }}
       >
@@ -89,8 +90,10 @@ const GithubFiles: React.FC<{ repo: GithubImportedRepo }> = (props) => {
     if (!open) {
       rootFileRef.current!.style.maxHeight =
         rootFileRef.current?.scrollHeight + "px";
+      rootFileRef.current!.style.overflow = "unset";
     } else {
       rootFileRef.current!.style.maxHeight = "3rem";
+      rootFileRef.current!.style.overflow = "hidden";
     }
   };
 

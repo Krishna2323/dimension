@@ -17,7 +17,7 @@
     }
 
     &>span {
-        padding: .6rem 1.9rem .6rem 1.7rem;
+        padding: .6rem 1.35rem .6rem 1.7rem;
         font-family: Gt-Whelshime-Light, sans-serif;
         font-size: 1.4rem;
         font-weight: 400;
@@ -33,7 +33,6 @@
         color: rgba(108, 111, 117, 0.8);
         position: relative;
         z-index: 1;
-        width: 100%;
 
         &>span {
             width: 85%;
@@ -44,10 +43,10 @@
         &::after {
             content: "";
             top: 0;
-            left: 50%;
+            left: calc(50% + .45rem);
             background-color: transparent;
             position: absolute;
-            width: calc(100% - 1.8rem);
+            width: calc(100% - .9rem);
             transform: translateX(-50%);
             height: 100%;
             z-index: -1;
@@ -79,12 +78,30 @@
     // max-height: 3rem;
 
     & .blob {
-        background-color: transparent;
-        transition: all .1s;
-    }
+        position: relative;
+        z-index: 1;
+        overflow-x: hidden;
 
-    & .blob:hover {
-        background: #F5F5F5;
+        &::after {
+            content: "";
+            top: 0;
+            left: calc(50% + .45rem);
+            background-color: transparent;
+            position: absolute;
+            width: calc(100% - .9rem);
+            transform: translateX(-50%);
+            height: 100%;
+            z-index: -1;
+            border-radius: .6rem;
+            transition: all .1s;
+        }
+
+        &:hover {
+            &::after {
+                background: #f5f5f5;
+            }
+        }
+
     }
 
     & div {
@@ -94,7 +111,7 @@
         }
 
         &::-webkit-scrollbar-track {
-            background-color: #dee2e6;
+            background-color: transparent;
             display: block;
             width: 9px;
             height: 9px;
@@ -103,7 +120,7 @@
         }
 
         &::-webkit-scrollbar-thumb {
-            background: #adb5bd;
+            background-color: rgba(222, 226, 230, .5);
             border-radius: 5px;
         }
 
@@ -121,6 +138,8 @@
         align-items: center;
         gap: .8rem;
         white-space: nowrap;
-        margin-bottom: .2rem
+        margin-bottom: .2rem;
+        width: 100%;
+        min-width: fit-content;
     }
 }
