@@ -1,8 +1,8 @@
 .rootFile {
     max-height: 3rem;
     min-height: 3rem;
-    overflow-y: clip;
-    transition: all .35s;
+    overflow-y: hidden;
+    // transition: all .35s;
     user-select: none;
 
     &__open {
