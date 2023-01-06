@@ -4,6 +4,10 @@
     overflow: hidden;
     user-select: none;
 
+    &__open {
+        animation: overflowShow .15s forwards;
+    }
+
     &>div {
         display: inline-block;
         min-width: 100%;

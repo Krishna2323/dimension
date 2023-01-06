@@ -10,7 +10,7 @@ import { GithubTreeFile } from "../../model/GithubAPI";
 const RecursiveFileTree: React.FC<{
   file: GithubTreeFile;
   levelToSub: number;
-}> = (props) => {
+}> = React.memo((props) => {
   const { file, levelToSub } = props;
   const [open, setOpen] = useState<boolean>(false);
   const level = file.path.split("/").length - levelToSub;
@@ -23,6 +23,7 @@ const RecursiveFileTree: React.FC<{
   let levelToSubtract = 0 || levelToSub;
 
   while (fileCopy && fileCopy.children && !breakLoop) {
+    console.log("RUNNN");
     if (
       fileCopy.children.length === 1 &&
       fileCopy.children[0].type !== "blob"
@@ -112,6 +113,6 @@ const RecursiveFileTree: React.FC<{
       </div>
     </div>
   );
-};
+});
 
 export default RecursiveFileTree;

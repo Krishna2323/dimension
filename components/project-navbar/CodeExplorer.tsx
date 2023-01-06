@@ -59,4 +59,4 @@ const GithubFiles: React.FC<{ repo: GithubImportedRepo }> = (props) => {
   );
 };
 
-export default GithubFiles;
+export default React.memo(GithubFiles);
