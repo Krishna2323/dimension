@@ -19,7 +19,7 @@ const RecursiveFileTree: React.FC<{
   let breakLoop = false;
   let fileCopy = Object.assign({}, file);
   let childToPass = Object.assign({}, file);
-  let levelToSubtract = 0;
+  let levelToSubtract = 0 || levelToSub;
 
   while (fileCopy && fileCopy.children && !breakLoop) {
     if (
@@ -28,7 +28,6 @@ const RecursiveFileTree: React.FC<{
     ) {
       fileName += "/" + fileCopy.children[0].path.split("/").at(-1);
       fileCopy = fileCopy.children[0];
-      // childToPass.children = undefined;
       levelToSubtract++;
     } else if (fileCopy.children.length > 1) {
       childToPass = fileCopy;
@@ -97,13 +96,6 @@ const RecursiveFileTree: React.FC<{
           transition: "all .3s",
         }}
       >
-        {/* {file.children &&
-          file.children.length > 0 &&
-          sorfByFolderFirst(file.children)?.map(
-            (node: GithubTreeFile, i: number) => (
-              <RecursiveFileTree key={i} file={node} />
-            )
-          )} */}
         {childToPass.children &&
           childToPass.children.length > 0 &&
           sorfByFolderFirst(childToPass.children)?.map(
