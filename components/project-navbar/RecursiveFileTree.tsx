@@ -10,7 +10,7 @@ import { GithubTreeFile } from "../../model/GithubAPI";
 const RecursiveFileTree: React.FC<{
   file: GithubTreeFile;
   levelToSub: number;
-}> = React.memo((props) => {
+}> = React.memo(function treeFile(props) {
   const { file, levelToSub } = props;
   const [open, setOpen] = useState<boolean>(false);
   const level = file.path.split("/").length - levelToSub;
