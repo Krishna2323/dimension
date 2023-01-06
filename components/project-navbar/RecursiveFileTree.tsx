@@ -14,7 +14,7 @@ const RecursiveFileTree: React.FC<{
   const { file, levelToSub } = props;
   const [open, setOpen] = useState<boolean>(false);
   const level = file.path.split("/").length - levelToSub;
-  let fileName = file.path.split("/")[level - 1];
+  let fileName = file.path.split("/").at(-1);
 
   let breakLoop = false;
   let fileCopy = Object.assign({}, file);
@@ -28,7 +28,7 @@ const RecursiveFileTree: React.FC<{
     ) {
       fileName += "/" + fileCopy.children[0].path.split("/").at(-1);
       fileCopy = fileCopy.children[0];
-      childToPass.children = undefined;
+      // childToPass.children = undefined;
       levelToSubtract++;
     } else if (fileCopy.children.length > 1) {
       childToPass = fileCopy;
