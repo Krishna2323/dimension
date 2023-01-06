@@ -7,10 +7,10 @@ import FileIcon from "../../assets/FileIcons/file.svg";
 import { sorfByFolderFirst } from "./CodeExplorerHelper";
 import { GithubTreeFile } from "../../model/GithubAPI";
 
-// eslint-disable-next-line react/display-name
 const RecursiveFileTree: React.FC<{
   file: GithubTreeFile;
   levelToSub: number;
+  // eslint-disable-next-line react/display-name
 }> = React.memo((props) => {
   const { file, levelToSub } = props;
   const [open, setOpen] = useState<boolean>(false);
