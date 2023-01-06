@@ -2,12 +2,7 @@
     max-height: 3rem;
     min-height: 3rem;
     overflow: hidden;
-    // transition: all .35s;
     user-select: none;
-
-    &__open {
-        animation: overflowShow .15s forwards;
-    }
 
     &>div {
         display: inline-block;

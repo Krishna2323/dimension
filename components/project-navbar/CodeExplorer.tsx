@@ -18,19 +18,15 @@ const GithubFiles: React.FC<{ repo: GithubImportedRepo }> = (props) => {
   const handleMaxHeight = () => {
     setOpen((prev) => !prev);
     if (!open) {
-      rootFileRef.current!.style.transition = "none";
       rootFileRef.current!.style.maxHeight =
         rootFileRef.current?.scrollHeight + "px";
       rootFileRef.current!.style.minHeight =
         rootFileRef.current?.scrollHeight + "px";
       rootFileRef.current!.style.overflow = "unset";
-      // rootFileRef.current!.classList.add(classes.rootFile__open);
     } else {
-      rootFileRef.current!.style.transition = "all .35s";
       rootFileRef.current!.style.maxHeight = "3rem";
       rootFileRef.current!.style.minHeight = "3rem";
       rootFileRef.current!.style.overflow = "hidden";
-      // rootFileRef.current!.classList.remove(classes.rootFile__open);
     }
   };
 

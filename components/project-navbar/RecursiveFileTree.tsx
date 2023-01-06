@@ -16,6 +16,7 @@ const RecursiveFileTree: React.FC<{
   const level = file.path.split("/").length - levelToSub;
   let fileName = file.path.split("/").at(-1);
 
+  // For not creating nested folder if there is only one children folder
   let breakLoop = false;
   let fileCopy = Object.assign({}, file);
   let childToPass = Object.assign({}, file);
@@ -44,6 +45,7 @@ const RecursiveFileTree: React.FC<{
     }
   }
 
+  // Extracting file extension for icons
   let fileExtention;
   if (file.type === "blob") {
     fileExtention = file.path.split(".").at(-1)!;
